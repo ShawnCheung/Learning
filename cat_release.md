@@ -1,3 +1,4 @@
+#cat
 uname -a
 cat /proc/version
 cat /etc/issue
