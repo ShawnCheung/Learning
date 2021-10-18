@@ -46,4 +46,13 @@
 ## 图片
 > \!\[图片alt\](图片链接 "图片title")
 
+## 文档内跳转
+> 在需要跳转的位置\[\<sup>1\</sup>](#refer)，其中第一个1表示上标，refer表示想要跳转的位置<br>
+> 在跳转到的位置\<div id="refer">\</div><br>
+
+## 导出
+> 在vscode中安装Markdown PDF插件<br>
+> 打开markdown文件，按F1或者CTRL+SHIT+P<br>
+> 输入export，选择pdf就可导出PDF文件<br>
+
 # [markdown扩展语法](https://markdown.com.cn/extended-syntax/availability.html)
