@@ -33,3 +33,12 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 * 查看pdf命令<br>
 > evince xx.pdf<br>
+
+* 更换虚拟机内核版本<br>
+> <https://blog.csdn.net/sinat_38816924/article/details/120344282>
+
+* Linux Kernel Mail List
+> <https://lkml.org/>
+
+* http://vger.kernel.org/
+> <http://vger.kernel.org/>
