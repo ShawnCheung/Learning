@@ -63,5 +63,8 @@
 > 打开markdown文件，按F1或者CTRL+SHIT+P<br>
 > 输入export，选择pdf就可导出PDF文件<br>
 
+## 空格
+> 输入全角的空格<br>
+
 # [markdown扩展语法](https://markdown.com.cn/extended-syntax/availability.html)
 
