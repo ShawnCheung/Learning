@@ -42,3 +42,14 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 * http://vger.kernel.org/
 > <http://vger.kernel.org/>
+
+* crontab -e定时执行python脚本有时候某些包的引入会导致无法执行python脚本
+> 正确做法先在命令行中env查看当前shell下的环境变量
+> 编辑定时任务* * * * * env > /tmp/env.output查看crontab下的环境变量
+> 通过比较crontab的env与shell的env，找出不同，在定时任务设置一下环境变量。
+> 比如这个实验中我们添加如下内容在crontab -e中
+> ```shell
+> DISPLAY=:1
+> XAUTHORITY=/run/user/1000/gdm/Xauthority
+> PATH=/usr/local/texlive/2021/texmf-dist/scripts/latexindent:/usr/local/texlive/2021/bin/x86_64-linux:/home/shawn/.pyenv/plugins/pyenv-virtualenv/shims:/home/shawn/.pyenv/shims:/home/shawn/.pyenv/bin:/usr/local/anaconda3/bin:/usr/local/pycharm-community-2020.3.2/bin:/home/shawn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/blender-2.92.0-linux64:/usr/local/pycharm-community-2020.3.2/bin:/usr/local/cuda/bin
+> ```
