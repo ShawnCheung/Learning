@@ -53,3 +53,23 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 > XAUTHORITY=/run/user/1000/gdm/Xauthority
 > PATH=/usr/local/texlive/2021/texmf-dist/scripts/latexindent:/usr/local/texlive/2021/bin/x86_64-linux:/home/shawn/.pyenv/plugins/pyenv-virtualenv/shims:/home/shawn/.pyenv/shims:/home/shawn/.pyenv/bin:/usr/local/anaconda3/bin:/usr/local/pycharm-community-2020.3.2/bin:/home/shawn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/blender-2.92.0-linux64:/usr/local/pycharm-community-2020.3.2/bin:/usr/local/cuda/bin
 > ```
+
+https://blog.csdn.net/xiaoqiangclub/article/details/112195070?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link
+
+* DNS_PROBE_FINISHED_NXDOMAIN
+```
+sudo vim /etc/resolv.conf
+```
+添加如下DNS
+```
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+刷新DNS
+```
+sudo systemd-resolve --flush-caches
+```
+check the statistics in order to make sure that your cache size is now zero.
+```
+sudo systemd-resolve --statistics
+```
