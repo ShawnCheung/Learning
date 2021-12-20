@@ -73,3 +73,68 @@ check the statistics in order to make sure that your cache size is now zero.
 ```
 sudo systemd-resolve --statistics
 ```
+
+* cuda多版本共存<br>
+1. 删除原有cuda<br>
+```bash
+sudo rm -rf /usr/local/cuda
+```
+2. 建立新的软链接
+```bash
+sudo ln -s /usr/local/cuda-9.2 /usr/local/cuda
+```
+
+* cudnn改变<br>
+<https://developer.nvidia.com/cuDNN><br>
+cuDNN Archive | NVIDIA Developer<br>
+选择你要下载的版本<br>
+1. 解压出一个名为cuda的文件夹，文件夹中有include和lib64两个文件夹<br>
+2. 删除原来的cudnn<br>
+    ```bash
+    sudo rm -rf /usr/local/cuda/include/cudnn.h
+    sudo rm -rf /usr/local/cuda/lib64/libcudnn*
+    ```
+3. 安装安装需要版本的cudnn，在终端cd到刚解压的cuda文件夹<br>
+    ```bash
+    sudo cp include/cudnn.h /usr/local/cuda/include/
+    sudo cp lib64/lib* /usr/local/cuda/lib64/
+    ```
+4. cd到/usr/local/cuda/lib64/文件夹下，建立软链接（注意版本号换成你自己的）<br>
+    ```bash
+    sudo chmod +r libcudnn.so.5.0.5  
+    sudo ln -sf libcudnn.so.5.0.5 libcudnn.so.5  
+    sudo ln -sf libcudnn.so.5 libcudnn.so  
+    sudo ldconfig  
+    ```
+5. 检测
+    ```bash
+    cd /usr/local/cuda/lib64/
+    ll
+    ```
+    会显示出你已经建立的软链接记录。至此，cudnn版本更新完毕。
+
+* 查看cudnn版本
+    ```bash
+    cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+    ```
+
+* 查看cuda版本
+    ```bash
+    nvcc -V
+    ```
+
+* This is probably because cuDNN failed to initialize解决办法<br>
+试过改变cuddn版本，但是没啥效果。感觉应该是显存的问题，如下修改：<br>
+
+    **tensorflow：**
+    ```python
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    with tf.Session(config=config) as session:
+    ```
+    **keras：**
+    ```python
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    keras.backend.tensorflow_backend.set_session(tf.Session(config=config))
+    ```
