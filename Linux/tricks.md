@@ -44,45 +44,45 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 > <http://vger.kernel.org/>
 
 * crontab -e定时执行python脚本有时候某些包的引入会导致无法执行python脚本
-> 正确做法先在命令行中env查看当前shell下的环境变量
-> 编辑定时任务* * * * * env > /tmp/env.output查看crontab下的环境变量
-> 通过比较crontab的env与shell的env，找出不同，在定时任务设置一下环境变量。
-> 比如这个实验中我们添加如下内容在crontab -e中
-> ```shell
-> DISPLAY=:1
-> XAUTHORITY=/run/user/1000/gdm/Xauthority
-> PATH=/usr/local/texlive/2021/texmf-dist/scripts/latexindent:/usr/local/texlive/2021/bin/x86_64-linux:/home/shawn/.pyenv/plugins/pyenv-virtualenv/shims:/home/shawn/.pyenv/shims:/home/shawn/.pyenv/bin:/usr/local/anaconda3/bin:/usr/local/pycharm-community-2020.3.2/bin:/home/shawn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/blender-2.92.0-linux64:/usr/local/pycharm-community-2020.3.2/bin:/usr/local/cuda/bin
-> ```
-
-https://blog.csdn.net/xiaoqiangclub/article/details/112195070?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link
+    > 正确做法先在命令行中env查看当前shell下的环境变量
+    > 编辑定时任务* * * * * env > /tmp/env.output查看crontab下的环境变量
+    > 通过比较crontab的env与shell的env，找出不同，在定时任务设置一下环境变量。
+    > 比如这个实验中我们添加如下内容在crontab -e中
+    > ```shell
+    > DISPLAY=:1
+    > XAUTHORITY=/run/user/1000/gdm/Xauthority
+    > PATH=/usr/local/texlive/2021/texmf-dist/scripts/latexindent:/usr/local/texlive/2021/bin/x86_64-linux:/home/shawn/.pyenv/plugins/pyenv-virtualenv/shims:/home/shawn/.pyenv/shims:/home/shawn/.pyenv/bin:/usr/local/anaconda3/bin:/usr/local/pycharm-community-2020.3.2/bin:/home/shawn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/blender-2.92.0-linux64:/usr/local/pycharm-community-2020.3.2/bin:/usr/local/cuda/bin
+    > ```
 
 * DNS_PROBE_FINISHED_NXDOMAIN
-```
-sudo vim /etc/resolv.conf
-```
-添加如下DNS
-```
-nameserver 8.8.8.8
-nameserver 8.8.4.4
-```
-刷新DNS
-```
-sudo systemd-resolve --flush-caches
-```
-check the statistics in order to make sure that your cache size is now zero.
-```
-sudo systemd-resolve --statistics
-```
+    ```
+    sudo vim /etc/resolv.conf
+    ```
+    添加如下DNS
+    ```
+    nameserver 8.8.8.8
+    nameserver 8.8.4.4
+    ```
+    刷新DNS
+    ```
+    sudo systemd-resolve --flush-caches
+    ```
+    check the statistics in order to make sure that your cache size is now zero.
+    ```
+    sudo systemd-resolve --statistics
+    ```
+    如果ping不通www.github.com,找其他电脑ping，确定github.com的ip地址。
+
 
 * cuda多版本共存<br>
 1. 删除原有cuda<br>
-```bash
-sudo rm -rf /usr/local/cuda
-```
+    ```bash
+    sudo rm -rf /usr/local/cuda
+    ```
 2. 建立新的软链接
-```bash
-sudo ln -s /usr/local/cuda-9.2 /usr/local/cuda
-```
+    ```bash
+    sudo ln -s /usr/local/cuda-9.2 /usr/local/cuda
+    ```
 
 * cudnn改变<br>
 <https://developer.nvidia.com/cuDNN><br>
@@ -138,3 +138,16 @@ cuDNN Archive | NVIDIA Developer<br>
     config.gpu_options.allow_growth = True
     keras.backend.tensorflow_backend.set_session(tf.Session(config=config))
     ```
+
+* E: Sub-process /usr/bin/dpkg returned an error code (1)
+    ```bash
+    1.$ sudo mv /var/lib/dpkg/info /var/lib/dpkg/info_old //现将info文件夹更名
+    2.$ sudo mkdir /var/lib/dpkg/info //再新建一个新的info文件夹
+    3.$ sudo apt-get update && sudo apt-get -f install //不用解释了吧
+    4.$ sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info_old //执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info_old文件夹下
+
+    5.$ sudo rm -rf /var/lib/dpkg/info //把自己新建的info文件夹删掉
+    6.$ sudo mv /var/lib/dpkg/info_old /var/lib/dpkg/info //把以前的info文件夹重新改
+    ```
+
+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
