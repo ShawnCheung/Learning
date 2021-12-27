@@ -149,5 +149,24 @@ cuDNN Archive | NVIDIA Developer<br>
     5.$ sudo rm -rf /var/lib/dpkg/info //把自己新建的info文件夹删掉
     6.$ sudo mv /var/lib/dpkg/info_old /var/lib/dpkg/info //把以前的info文件夹重新改
     ```
+* 创建新环境 
+    ```bash
+    pyenv virtualenv 3.6.6 my-env
+    ```
 
+* gcc 版本升降
+    1. 添加PPA到本地仓库sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    2. 更新本地库： sudo apt-get update
+    3. 安装自己想要的版本： sudo apt-get install gcc-7 g++-7
+    4. gcc版本切换，手动更换软链接
+        ```bash
+        sudo ln -s /usr/bin/gcc-7 /usr/bin/gcc -f
+        sudo ln -s /usr/bin/gcc-ar-7 /usr/bin/gcc-ar -f
+        sudo ln -s /usr/bin/gcc-nm /usr/bin/gcc-nm -f
+        sudo ln -s /usr/bin/g++-nm /usr/bin/g++-nm -f
+        sudo ln -s /usr/bin/g++-ar-7 /usr/bin/g++-ar -f
+        sudo ln -s /usr/bin/g++-7 /usr/bin/g++ -f
+        ```
+    5. 查看gcc版本命令： `gcc -v`
+    
 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
