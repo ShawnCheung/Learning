@@ -28,3 +28,8 @@
 4. 统计框标raw = [12, 0,1,1,9,16,16,8,11,0,13,2,6,4,8,9,9,15,0,0,0,0,0,0,0,7,0,0,0,6,1,10,6,1,18,0,12,2,2,0,5,5,6,4,11,13,8,17,8,4,0,2,2,0,1,4,0,16,8,9,2,0,1,0,0,2,9,0,0,0,4,9,0,1,10,4,7,0,0,12,6,2,1,3,1,3,0,0,2,0,3,1,1,3,2,2,0,1,3,0,0,3,3,2,5,4,0,1,0,3,1,3,0,3,3,3,3,3,1,2,4,1,0,12,2,6,1]， 平均数4
 5. 准备研究深度图补全算法[monocular-depth-estimation](https://github.com/sxfduter/monocular-depth-estimation)
 6. 研读[Attention-based Context Aggregation Network for Monocular Depth Estimation](https://arxiv.org/pdf/1901.10137v1.pdf) [[code](https://github.com/miraiaroha/ACAN)]
+
+# 2021.12.28
+1. anydesk：886749586， passwd:name
+2. NYU DATASET
+3. 清理磁盘
