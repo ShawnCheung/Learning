@@ -71,7 +71,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
     ```
     sudo systemd-resolve --statistics
     ```
-    如果ping不通www.github.com,找其他电脑ping，确定github.com的ip地址。
+    如果ping不通 www.github.com,找其他电脑ping，确定github.com的ip地址。
 
 
 * cuda多版本共存<br>
@@ -168,5 +168,18 @@ cuDNN Archive | NVIDIA Developer<br>
         sudo ln -s /usr/bin/g++-7 /usr/bin/g++ -f
         ```
     5. 查看gcc版本命令： `gcc -v`
-    
+* pyenv、pyenv virtual env[使用方法](https://www.jianshu.com/p/3e93311fe6cb)
+
+* 已经kill了主进程，可是子进程却没有kill掉，成了僵尸进程，占用的显存没能正常释放。
+    ```bash
+    fuser -v /dev/nvidia*
+    ```
+    即可查看所有占用了显存的进程。
+
+    然后找到需要干掉的僵尸进程，为了避免误杀那些还在运行的进程，可以选出需要干掉的进程中特有的关键词，比如.py文件的名称train_imagenet.py这种，然后运行以下指令：
+    ```bash
+    ps -ef | grep train_imagenet | grep -v grep | cut -c 9-15 | xargs kill -9
+    ```
+
+
 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

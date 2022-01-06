@@ -32,4 +32,15 @@
 # 2021.12.28
 1. anydesk：886749586， passwd:name
 2. NYU DATASET
-3. 清理磁盘
+3. 清理磁盘gparted明令可以分区
+
+# 2022.01.05
+1. ssh kb457@10.42.0.92
+2. git push --set-upstream origin RAW
+3. source ~/.pyenv/versions/pcl/bin/activate
+4. pip freeze > d:\requirements.txt
+
+# 2022.01.06
+1. 奥鹏标注0.49/框。
+2. Attention-depth算法代码。
+3. 训练过程出现nan，是因为学习率过大的原因。
