@@ -180,6 +180,19 @@ cuDNN Archive | NVIDIA Developer<br>
     ```bash
     ps -ef | grep train_imagenet | grep -v grep | cut -c 9-15 | xargs kill -9
     ```
+* GIMP功能对标于Photoshop，[使用方法](https://blog.csdn.net/michaelchain/article/details/119628593)
+```bash
+sudo add-apt-repository ppa:ubuntuhandbook1/gimp
+sudo apt install gimp
+```
+如果需要恢复
+```bash
+sudo apt install ppa-purge && sudo ppa-purge ppa:ubuntuhandbook1/gimp
+```
+配置：
+不需额外配置，如果希望减小或增加GIMP的内存资源，可以在Edit->Preference->System Resources里面修改，如果GIMP安装目录不是SSD，希望将swap目录放到SSD，可以修改Edit->Preference->Folders的Temporary folder和Swap folder。
+
+工具图标管理：默认会将相近功能的图标合成一组，如果希望全部打开展示，可以通过Edit->Preference->Interface->Toolbox进行修改，删除Group后，Group里的工具图标会提升到上一层。
 
 
 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
