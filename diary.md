@@ -44,3 +44,20 @@
 1. 奥鹏标注0.49/框。
 2. Attention-depth算法代码。
 3. 训练过程出现nan，是因为学习率过大的原因。
+4. 启动tensorboard`tensorboard --logdir .\my_log_dir\`
+5. screen -S attention-raw
+
+# 2022.01.07
+1. 上传澳鹏OSS数据。
+2. 80类别 The 50th epoch, fps 333.39 | {'a1': 0.99007, 'a2': 0.99885, 'a3': 0.99977, 'rmse': 22.96294, 'rmse_log': 0.05945, 'log10': 0.04034, 'abs_rel': 0.04085, 'sq_rel': 1.44395}
+=> Checkpoint was saved successfully!
+Finished training! Best epoch 49 best acc 0.9903
+Spend time: 8.59h
+
+# 2022.01.10
+1. 180classes attention-depth on raw: {'a1': 0.99079, 'a2': 0.99889, 'a3': 0.99982, 'rmse': 17.06729, 'rmse_log': 0.04389, 'log10': 0.02557, 'abs_rel': 0.02566, 'sq_rel': 0.91568}
+2. 80classes attention-depth on nyu: {'a1': 0.81746, 'a2': 0.95975, 'a3': 0.98898, 'rmse': 0.55554, 'rmse_log': 0.19197, 'log10': 0.13756, 'abs_rel': 0.14328, 'sq_rel': 0.10942}
+3. NUSCENS注册：邮箱xuhao_zhang@qq.com,密码:_Zxh1103138402
+
+# 2022.01.11
+1. 512 classes attention-depth on raw: Testing done, fps 46.07 | {'a1': 0.9603, 'a2': 0.99493, 'a3': 0.99879, 'rmse': 38.00303, 'rmse_log': 0.09997, 'log10': 0.08097, 'abs_rel': 0.08101, 'sq_rel': 4.37271}
