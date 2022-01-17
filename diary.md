@@ -55,9 +55,22 @@ Finished training! Best epoch 49 best acc 0.9903
 Spend time: 8.59h
 
 # 2022.01.10
-1. 180classes attention-depth on raw: {'a1': 0.99079, 'a2': 0.99889, 'a3': 0.99982, 'rmse': 17.06729, 'rmse_log': 0.04389, 'log10': 0.02557, 'abs_rel': 0.02566, 'sq_rel': 0.91568}
-2. 80classes attention-depth on nyu: {'a1': 0.81746, 'a2': 0.95975, 'a3': 0.98898, 'rmse': 0.55554, 'rmse_log': 0.19197, 'log10': 0.13756, 'abs_rel': 0.14328, 'sq_rel': 0.10942}
-3. NUSCENS注册：邮箱xuhao_zhang@qq.com,密码:_Zxh1103138402
+1. 180classes attention-depth on raw. train: {'a1': 0.99079, 'a2': 0.99889, 'a3': 0.99982, 'rmse': 17.06729, 'rmse_log': 0.04389, 'log10': 0.02557, 'abs_rel': 0.02566, 'sq_rel': 0.91568};
+test:{'a1': 0.98601, 'a2': 0.99862, 'a3': 0.99982, 'rmse': 24.32791, 'rmse_log': 0.06222, 'log10': 0.04694, 'abs_rel': 0.04681, 'sq_rel': 1.81376}
+2. 512classes attention-depth on raw. test:{'a1': 0.9603, 'a2': 0.99493, 'a3': 0.99879, 'rmse': 38.00303, 'rmse_log': 0.09997, 'log10': 0.08097, 'abs_rel': 0.08101, 'sq_rel': 4.37271}
+3. 80classes attention-depth on nyu: {'a1': 0.81746, 'a2': 0.95975, 'a3': 0.98898, 'rmse': 0.55554, 'rmse_log': 0.19197, 'log10': 0.13756, 'abs_rel': 0.14328, 'sq_rel': 0.10942}
+4. NUSCENS注册：邮箱xuhao_zhang@qq.com,密码:_Zxh1103138402
 
 # 2022.01.11
 1. 512 classes attention-depth on raw: Testing done, fps 46.07 | {'a1': 0.9603, 'a2': 0.99493, 'a3': 0.99879, 'rmse': 38.00303, 'rmse_log': 0.09997, 'log10': 0.08097, 'abs_rel': 0.08101, 'sq_rel': 4.37271}
+2. https://www.nuscenes.org/nuscenes#download
+
+# 2022.01.15
+1. 小罗来教研室陪我学习，带了一串烤肠。
+
+# 2022.01.16
+1. 需要统计三个类别的mean_size,计算size的残差
+
+# 2022.01.17
+1. yolox.
+2. code frustum PointNet.
