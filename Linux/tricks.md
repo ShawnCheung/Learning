@@ -194,4 +194,13 @@ cuDNN Archive | NVIDIA Developer<br>
     查看Session：`screen -ls`<br>
     进入copy模式：`CTRL+A+[`<br>
     退出copy模式：`CTRL+C`<br>
+
+* Ubuntu中运行.APPImage格式文件<br>
+    右键Properties， Permissions勾选Allow executing file as program<br>
+
+* VScode代码跳转插件pylance
+
+* latex公式
+<https://latexlive.com/home>
+    
 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

@@ -16,7 +16,7 @@
 
 # 2021.12.25
 1. 研究dense depth算法
-2. 查看SUN RGB-D数据集，里面不包含点云数据
+2. 查看SUN RGB-D数据集，里面不包含点云数据，3D目标检测
 
 # 2021.12.26
 1. 在pcl环境下测试Frustum-PointNets-Pytorch
@@ -74,3 +74,49 @@ test:{'a1': 0.98601, 'a2': 0.99862, 'a3': 0.99982, 'rmse': 24.32791, 'rmse_log':
 # 2022.01.17
 1. yolox.
 2. code frustum PointNet.
+3. OHEM 180 train on raw, fps 10.16 | {'a1': 0.94749, 'a2': 0.99448, 'a3': 0.9992, 'rmse': 41.23414, 'rmse_log': 0.10361, 'log10': 0.07611, 'abs_rel': 0.07771, 'sq_rel': 4.69999}
+  test:fps 2.70 | {'a1': 0.9412, 'a2': 0.99356, 'a3': 0.99887, 'rmse': 41.09248, 'rmse_log': 0.10474, 'log10': 0.08198, 'abs_rel': 0.08308, 'sq_rel': 5.1187}
+4. CE 180 train on raw, fps 7.47 | {'a1': 0.9476, 'a2': 0.99452, 'a3': 0.99921, 'rmse': 41.44036, 'rmse_log': 0.10404, 'log10': 0.07671, 'abs_rel': 0.07817, 'sq_rel': 4.72609}
+  test:fps 2.46 | {'a1': 0.93995, 'a2': 0.99295, 'a3': 0.99886, 'rmse': 41.79632, 'rmse_log': 0.1056, 'log10': 0.08217, 'abs_rel': 0.08273, 'sq_rel': 5.21741}
+
+# 2022.01.20
+1. 澳鹏验收，网址：<https://ui.appen.com.cn/>，账户：<xuhao_zhang@qq.com>, 密码：<'7y,Y}kM>
+2. 验收850条数据
+
+# 2022.01.21
+1. 验收500条数据。
+2. 100个txt标注文件。
+
+# 2022.01.24
+1. [https://zhuanlan.zhihu.com/p/283015520]直角坐标系转换公式
+
+# 2022.01.31
+1. SSD-6D: Making RGB-Based 3D Detection and 6D Pose Estimation Great Again
+
+# 2022.02.04
+原理：
+对每一点的邻域进行统计分析，基于点到所有邻近点的距离分布特征，过滤掉一些不满足要求的离群点。该算法对整个输入进行两次迭代：在第一次迭代中，它将计算每个点到最近k个近邻点的平均距离，得到的结果符合高斯分布。接下来，计算所有这些距离的平均值 μ 和标准差 σ 以确定距离阈值 thresh_d ，且 thresh_d = μ + k·σ。 k为标准差乘数。在下一次迭代中，如果这些点的平均邻域距离分别低于或高于该阈值，则这些点将被分类为内点或离群点。
+1. 统计滤波算法流程
+输入：含有噪声的点云{P} \in \mathbb{R}^{N \times 3}，邻域点个数K，标准差乘数c
+输出：滤除噪声点云{Q} \in \mathbb{R}^{M \times 3}
+for i=0; i<N; i=i+1 do
+  取距离Pi距离最近的k个样本
+  统计d_{i}=\frac{1}{K} \sum_{k=1}^{K} distance\left(P_{i}, P_{i \rightarrow k}\right)
+end
+平均值\mu = average(d)
+标准差\sigma=\sqrt{\frac{\sum_{i=1}^{N}\left(d_{i}-\mu\right)^{2}}{N}}
+距离阈值\text { thresh_d }=\mu+\mathrm{c} \cdot \sigma
+i=0;
+j=0
+for ;i<N; i=i+1 do
+  if d_{i}<\text { thresh_d }
+    Q_{j}=P_{i}
+    i=i+1
+    j=j+1
+  end
+end
+返回Q
+
+#2022.02.21
+http://www.nra.gov.cn/xxgkml/xxgk/xxgkml/202003/t20200327_107026.shtml
+https://blog.csdn.net/clover_my/article/details/92794719
